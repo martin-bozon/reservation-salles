@@ -19,13 +19,13 @@
             <input type="text" id="description" name="description">
 
             <label for="debut">Date de début :</label>
-            <input type="date" id="debut" name="debut">
-            <input type="time" id="debut" name="debut">
+            <input type="date" id="debut" name="debut_date">
+            <input type="time" id="debut" name="debut_heure">
             <small>Première session à 8h, dernière session à 19h</small>
 
             <label for="fin">Date de début :</label>
-            <input type="date" id="fin" name="fin">
-            <input type="time" id="fin" name="fin">
+            <input type="date" id="fin" name="fin_date">
+            <input type="time" id="fin" name="fin_heure">
             <small>Crénaux d'une heure !</small>
 
             <input type="submit" name="validinsc" value="Inscription">
