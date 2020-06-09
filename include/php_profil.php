@@ -29,7 +29,28 @@
                                 {
                                     $msg_error = "Ce login est déjà prit";
                                 }
+                            if(isset($mdp) && !empty($mdp))
+                                {
+                                    if($mdp == $_POST["conf_password"])
+                                        {
+                                            $mdp_hash = password_hash($mdp, PASSWORD_DEFAULT);
+
+                                            $update_mdp = "UPDATE utilisateurs SET password='$mdp_hash' WHERE id='$id'";
+                                            $query_mdp = mysqli_query($connnexionbd, $update_mdp);
+                                            $_SESSION["password"] = $mdp_hash;
+                                            $msg_mdp = "Mot de passe modifié";
+                                        }
+                                    else
+                                        {
+                                            $msg_error = "Les mots de passe ne correspondent pas";
+                                        }
+                                }
+                        }
+                    else
+                        {
+                            $msg_error = "Mauvais mot de passe";
                         }
                 }
+           
         }
 ?>
