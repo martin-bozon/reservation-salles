@@ -4,7 +4,7 @@
             header("Location:index.php");
         }
     else
-        {                        
+        {                              
             if(isset($_POST["validresa"]) && !empty($_POST["titre"]) && !empty($_POST["description"]) && !empty($_POST["debut_date"]) && !empty($_POST["debut_heure"]) && !empty($_POST["fin_date"]) && !empty($_POST["fin_heure"]))
                 {                    
                     $debut = $_POST["debut_date"] . " " . $_POST["debut_heure"];
@@ -12,7 +12,14 @@
                     $titre = $_POST["titre"];
                     $description = $_POST["description"];        
                     $debut_str = strtotime($debut);
-                    $fin_str = strtotime($fin);                    
+                    $fin_str = strtotime($fin);    
+                    
+                    $time= explode(':', $_POST["debut_heure"]);
+                    var_dump($time);
+                    echo $time[1];//vérifie que minute = 0
+
+                    $sous = $fin_str - $debut_str;
+                    echo $sous; //soustraction pour vérifier créneau d'une heure
                     
                     //vérifie que l'heure de début choisie n'est pas déjà enregistré
                     // $requete_creneau = "SELECT * FROM reservations WHERE debut='$debut'";
@@ -27,23 +34,23 @@
                                     {
                                         echo "début";                        
                                     }
-                                else
-                                    {
-                                        if($fin_str<$debut_str) 
-                                        //check si date de fin n'est pas avant début
-                                        //manque faire en sorte que le créneau dure 1h !!!!
-                                            {
-                                                echo "fin";
-                                            }
-                                        // else if(//crénau d'une heure !)
-                                        //     {
-                                                
-                                        //     }
-                                        // else
-                                        //     {
-                                        //         //ajout dans la bdd
-                                        //     }
-                                    }
+                            else
+                                {
+                                    if($fin_str<$debut_str) 
+                                    //check si date de fin n'est pas avant début
+                                    //manque faire en sorte que le créneau dure 1h !!!!
+                                        {
+                                            echo "fin";
+                                        }
+                                    // else if(//crénau d'une heure !)
+                                    //     {
+                                            //ajout dans la bdd
+                                    //     }
+                                    // else
+                                    //     {
+                                    //         
+                                    //     }
+                                }
                             //}                                        
                 }
         }
