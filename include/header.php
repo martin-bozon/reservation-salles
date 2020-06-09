@@ -3,10 +3,10 @@
         if(isset($_SESSION["login"]))
             {
         ?>            
-                    <section>
+                    <section id="HG">
                         <h2><a href="index.php">Accueil</a></h2>
                     </section>
-                    <section>
+                    <section id="HD">
                         <h2><a href="planning.php">Planning</a></h2>
                         <h2><a href="reservation-form.php">Réserver une salle</a></h2>
                         <h2><a href="profil.php">Profil</a></h2>
@@ -23,17 +23,15 @@
             }
         else
             {
-        ?>
-                <header>
-                    <section>
+        ?>                
+                    <section id="HG">
                         <h2><a href="index.php">Accueil</a></h2>
                     </section>
-                    <section>
+                    <section id="HD">
                         <h2><a href="inscription.php">Inscription</a></h2>
                         <h2><a href="connexion.php">Connexion</a></h2>
                         <h2><a href="planning.php">Planning</a></h2>
-                    </section>
-                </header>
+                    </section>                
         <?php
             }
     ?>
