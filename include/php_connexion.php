@@ -20,9 +20,10 @@
                             if(password_verify($mdp, $info_user[0]["password"]))
                                 {
                                     session_start();
-                                    $_SESSION["login"] = $login;
-                                    $_SESSION["mdp"] = $mdp;
-                                    mysqli_close($connexionbd);
+                                    $_SESSION["login"] = $info_user[0]["login"];
+                                    $_SESSION["password"] = $info_user[0]["password"];
+                                    $_SESSION["id"] = $info_user[0]["id"];
+                                    mysqli_close($connexionbd);                                    
                                     header("Location:index.php");
                                 }
                             else
