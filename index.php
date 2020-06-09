@@ -7,12 +7,12 @@
     <title>Accueil</title>
 </head>
 <body>
-    <?php include 'include/header.php';?>
+    <?php 
+        include 'include/header.php';
 
-    <main>
+        include 'include/php_index.php';
 
-    </main>
-
-    <?php include 'include/footer.php';?>
+        include 'include/footer.php';
+    ?>
 </body>
 </html>
