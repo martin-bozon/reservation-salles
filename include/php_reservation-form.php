@@ -13,7 +13,8 @@
                     $titre = $_POST["titre"];
                     $description = $_POST["description"];        
                     $debut_str = strtotime($debut);
-                    $fin_str = strtotime($fin);                                                                                               
+                    $fin_str = strtotime($fin);     
+                    $id = $_SESSION["id"];                                                                                          
                     
                     //vérifie que l'heure de début choisie n'est pas déjà enregistré
                     $connexionbd = mysqli_connect("localhost", "root", "", "reservationsalles");
@@ -26,41 +27,51 @@
                     $jour = date("N", mktime(0, 0, 0, $semaine[1], $semaine[2], $semaine[0]));                    
 
                      if(empty($info_creneau))
-                         {
-                             if($debut_str<time()) //check date saisie pour début n'est pas déjà passée                                 
+                        {
+                            if($debut_str<time()) //check date saisie pour début n'est pas déjà passée                                 
                                 //time -2 heures !!!!!                            
-                                    {
-                                        echo "début passé";                        
-                                    }
+                                {
+                                    echo "début passé";                        
+                                }
                             else
                                 {
-                                    $time_debut= explode(':', $_POST["debut_heure"]);//transforme l'heure en tableau 2 entrées                                     
-                                    $time_fin = explode(':', $_POST["fin_heure"]);                                     
-                                   
-                                    if($fin_str<$debut_str) //check si date de fin n'est pas avant début                                                                
+                                    if($_POST["debut_date"] == $_POST["fin_date"])//vérifie que c'est le même jour
                                         {
-                                            echo "fin avant début";
-                                        }
-                                    else if($time_fin[0] - $time_debut[0] == 1)//regarde si le créneau dure 1h
-                                        {
-                                            echo "créneau 1h";
-                                             if($jour<=5)//vérifie que le jour n'est pas week-end
+                                            $time_debut= explode(':', $_POST["debut_heure"]);//transforme l'heure en tableau 2 entrées                                     
+                                            $time_fin = explode(':', $_POST["fin_heure"]);                                     
+                                        
+                                            if($fin_str<$debut_str) //check si date de fin n'est pas avant début                                                                
                                                 {
-                                                    echo "semaine";
-                                                        //$ajout = "INSERT INTO reservations (titre, description, debut, fin, id_utilisateurs) VALUES ('$titre', '$description', '$debut', '$fin', '$id')";
-                                                        //$query_ajout = mysqli_query($connexionbd, $ajout); 
+                                                    echo "fin avant début";
+                                                }
+                                            else if($time_fin[0] - $time_debut[0] == 1)//regarde si le créneau dure 1h
+                                                {                                            
+                                                    if($jour<=5)//vérifie que le jour n'est pas week-end
+                                                        {                                                   
+                                                                $ajout = "INSERT INTO reservations (titre, description, debut, fin, id_utilisateurs) VALUES ('$titre', '$description', '$debut', '$fin', '$id')";
+                                                                $query_ajout = mysqli_query($connexionbd, $ajout); 
+                                                                echo "réservation prise en compte";
+                                                        }
+                                                    else
+                                                        {
+                                                            echo "week-end";
+                                                        }
                                                 }
                                             else
                                                 {
-                                                    echo "week-end";
+                                                    echo "Plus d'une heure !!!";
                                                 }
                                         }
                                     else
                                         {
-                                            echo "Plus d'une heure !!!";
-                                        }
+                                            echo "pas le même jour";
+                                        }                                    
                                 }
-                            }                                        
+                        } 
+                    else    
+                        {
+                            echo "Créneau déjà prit";
+                        }                                       
                 }
         }
 ?>
