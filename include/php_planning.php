@@ -13,39 +13,48 @@ var_dump($info_resa);
     <?php
                 for($jour = 1; $jour<=5; $jour++)//génération des cellules sous les jours
                     {
-                        foreach($info_resa as $resa => $Hresa)//sépare les réservations
-                            {                
-                                $JH = explode(" ", $Hresa["debut"]);//sélection la ligne correspondant à l'heure de début
-
-                                $H = explode(":", $JH[1]);//explose l'heure
-                                $heure_resa = date("G", mktime($H[0], $H[1], $H[2], 0, 0, 0));//récupère uniquement l'heure sans le 0                  
-                                
-                                $J = explode("-", $JH[0]);//explose la date
-                                $jour_resa = date("N", mktime(0, 0, 0, $J[1], $J[2], $J[0]));//récupère le numéro du jour      
-                                
-                                $case_resa = $heure_resa . $jour_resa;//crée un numéro de réservation   
-                                
-                                $titre = $Hresa["titre"];
-                                $login = $Hresa["login"];
-                                $id = $Hresa["id"];                                
-                            }
-
-                        $case = $heure . $jour;//Crée un numéro pour chaque cellules
-
-                        if($case == $case_resa)
+                        if(!empty($info_resa))
                             {
-    ?>
-                                <td><p><?php echo $titre . $login?></p></td>
-    <?php
+                                foreach($info_resa as $resa => $Hresa)//sépare les réservations
+                                    {                
+                                        $JH = explode(" ", $Hresa["debut"]);//sélection la ligne correspondant à l'heure de début
+
+                                        $H = explode(":", $JH[1]);//explose l'heure
+                                        $heure_resa = date("G", mktime($H[0], $H[1], $H[2], 0, 0, 0));//récupère uniquement l'heure sans le 0                  
+                                        
+                                        $J = explode("-", $JH[0]);//explose la date
+                                        $jour_resa = date("N", mktime(0, 0, 0, $J[1], $J[2], $J[0]));//récupère le numéro du jour      
+                                        
+                                        $case_resa = $heure_resa . $jour_resa;//crée un numéro de réservation   
+                                        
+                                        $titre = $Hresa["titre"];
+                                        $login = $Hresa["login"];
+                                        $id = $Hresa["id"];                                
+                                    }
+
+                                $case = $heure . $jour;//Crée un numéro pour chaque cellules
+
+                                if($case == $case_resa)
+                                    {
+            ?>
+                                        <td><p><?php echo $titre . $login?></p></td>
+            <?php
+                                    }
+                                else
+                                    {                    
+            ?>
+                                        <td><p>Dispo</p></td><!--donne un numéro à chaque cellules -->
+            <?php
+                                    }
                             }
                         else
-                        {                    
-    ?>
-                        <td><p>Dispo</p></td><!--donne un numéro à chaque cellules -->
-    <?php
-                        }
-                    }
-    ?>
+                            {
+                                ?>
+                                        <td><p>Dispo</p></td><!--donne un numéro à chaque cellules -->
+                                <?php
+                            }        
+                    }   
+            ?>                                        
         </tr>
     <?php
             }    
