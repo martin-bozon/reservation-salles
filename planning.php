@@ -13,14 +13,17 @@
         <h1>Planning</h1>
         <table>
             <thead>
-                <th></th>
-                <th>Lundi</th>
-                <th>Mardi</th>
-                <th>Mercredi</th>
-                <th>Jeudi</th>
-                <th>Vendredi</th>                
+                <tr>
+                    <th></th>
+                    <th>Lundi</th>
+                    <th>Mardi</th>
+                    <th>Mercredi</th>
+                    <th>Jeudi</th>
+                    <th>Vendredi</th>
+                </tr>                              
             </thead>
             <tbody>
+            <?php include 'include/php_planning.php';?>
                 <!-- insérer iclude avec le reste du tableau, fait en for avec les données de la bbd -->
             </tbody>
         </table>

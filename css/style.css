@@ -49,8 +49,7 @@ main
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 100%;
-    }
+        flex-grow:1;    }
 main a:hover
     {
         color: red;
@@ -66,6 +65,61 @@ form
 input
     {
         text-align: center;
+    }
+/* tableau */
+table
+    {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        height: 90%;
+        width: 70vw;
+        margin-bottom: 10vh; 
+        border-spacing: 0;
+    }
+
+thead
+    {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 10%;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+thead tr  
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        border-bottom: 1px solid black;
+    }
+
+thead th
+    {
+        border-left: 1px solid black;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+tbody tr
+    {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        border-bottom: 1px solid black;
+    }
+
+td  
+    {
+        text-align: center;
+        width: 100%;
+        border-left: 1px solid black;
     }
 /* FOOTER */
 footer
