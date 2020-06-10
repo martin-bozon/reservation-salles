@@ -22,7 +22,7 @@
             <input type="text" id="description" name="description" required>
 
             <label for="debut">Date de début :</label>
-            <input type="date" id="debut" name="debut_date" required>        
+            <input type="date" id="debut" name="debut_date" min = "<?php echo date('Y-m-d')?>" required>                   
             <select id="debut" name="debut_heure">
                 <option value="08:00">08:00</option>
                 <option value="09:00">09:00</option>
@@ -39,7 +39,7 @@
             </select>                       
 
             <label for="fin">Date de fin :</label>
-            <input type="date" id="fin" name="fin_date" required>
+            <input type="date" id="fin" name="fin_date" min = "<?php echo date('Y-m-d')?>"required>
             <select id="debut" name="fin_heure">
                 <option value="09:00">09:00</option>
                 <option value="10:00">10:00</option>
