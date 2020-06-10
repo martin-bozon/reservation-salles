@@ -5,7 +5,8 @@
         }
     else
         {     
-            var_dump($_POST);                         
+            // echo time();
+            echo date("d, m ,Y, H:i");
             if(isset($_POST["validresa"]) && !empty($_POST["titre"]) && !empty($_POST["description"]) && !empty($_POST["debut_date"]) && !empty($_POST["debut_heure"]) && !empty($_POST["fin_date"]) && !empty($_POST["fin_heure"]))
                 {                    
                     $debut = $_POST["debut_date"] . " " . $_POST["debut_heure"];
@@ -31,7 +32,7 @@
                             if($debut_str<time()) //check date saisie pour début n'est pas déjà passée                                 
                                 //time -2 heures !!!!!                            
                                 {
-                                    echo "début passé";                        
+                                    $msg_error =  "début passé";                        
                                 }
                             else
                                 {
@@ -42,7 +43,7 @@
                                         
                                             if($fin_str<$debut_str) //check si date de fin n'est pas avant début                                                                
                                                 {
-                                                    echo "fin avant début";
+                                                    $msg_error = "fin avant début";
                                                 }
                                             else if($time_fin[0] - $time_debut[0] == 1)//regarde si le créneau dure 1h
                                                 {                                            
@@ -50,27 +51,27 @@
                                                         {                                                   
                                                                 $ajout = "INSERT INTO reservations (titre, description, debut, fin, id_utilisateurs) VALUES ('$titre', '$description', '$debut', '$fin', '$id')";
                                                                 $query_ajout = mysqli_query($connexionbd, $ajout); 
-                                                                echo "réservation prise en compte";
+                                                                $msg_valid = "réservation prise en compte";
                                                         }
                                                     else
                                                         {
-                                                            echo "week-end";
+                                                            $msg_error = "week-end";
                                                         }
                                                 }
                                             else
                                                 {
-                                                    echo "Plus d'une heure !!!";
+                                                    $msg_error = "Plus d'une heure !!!";
                                                 }
                                         }
                                     else
                                         {
-                                            echo "pas le même jour";
+                                            $msg_error = "pas le même jour";
                                         }                                    
                                 }
                         } 
                     else    
                         {
-                            echo "Créneau déjà prit";
+                            $msg_error = "Créneau déjà prit";
                         }                                       
                 }
         }

@@ -56,8 +56,18 @@
             </select>  
             <small>Créneau d'une heure !</small>
            
-
             <input type="submit" name="validresa" value="Réserver">
+
+            <?php
+                if(isset($msg_error))
+                    {
+                        echo "<span class='msg_'>" . $msg_error . "</span><br/>";
+                    }
+                if(isset($msg_valid))
+                    {
+                        echo "<span class='msg_'>" . $msg_valid . "</span><br/>";
+                    }
+            ?>
         </form>
     </main>
 
