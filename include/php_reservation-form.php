@@ -13,15 +13,17 @@
                     $titre = $_POST["titre"];
                     $description = $_POST["description"];        
                     $debut_str = strtotime($debut);
-                    $fin_str = strtotime($fin);                                                                           
-
-                    // $sous = $fin_str - $debut_str;
-                    // echo $sous; //soustraction pour vérifier créneau d'une heure
+                    $fin_str = strtotime($fin);                                                                                               
                     
                     //vérifie que l'heure de début choisie n'est pas déjà enregistré
-                    // $requete_creneau = "SELECT * FROM reservations WHERE debut='$debut'";
-                    // $query_creneau = mysqli_query($connexionbd, $requete_creneau);
-                    // $info_creneau = mysqli_fetch_all($query_creneau, MYSQLI_ASSOC);
+                    $connexionbd = mysqli_connect("localhost", "root", "", "reservationsalles");
+                    $requete_creneau = "SELECT * FROM reservations WHERE debut='$debut'";
+                    $query_creneau = mysqli_query($connexionbd, $requete_creneau);
+                    $info_creneau = mysqli_fetch_all($query_creneau, MYSQLI_ASSOC);
+
+                    //check si le jour n'est pas week-end
+                    $semaine = explode("-", $_POST["debut_date"]);                 
+                    $jour = date("N", mktime(0, 0, 0, $semaine[1], $semaine[2], $semaine[0]));                    
 
                      if(empty($info_creneau))
                          {
@@ -42,6 +44,16 @@
                                     else if($time_fin[0] - $time_debut[0] == 1)//regarde si le créneau dure 1h
                                         {
                                             echo "créneau 1h";
+                                             if($jour<=5)//vérifie que le jour n'est pas week-end
+                                                {
+                                                    echo "semaine";
+                                                        //$ajout = "INSERT INTO reservations (titre, description, debut, fin, id_utilisateurs) VALUES ('$titre', '$description', '$debut', '$fin', '$id')";
+                                                        //$query_ajout = mysqli_query($connexionbd, $ajout); 
+                                                }
+                                            else
+                                                {
+                                                    echo "week-end";
+                                                }
                                         }
                                     else
                                         {
@@ -53,6 +65,4 @@
         }
 ?>
 
-<!-- $connexionbd = mysqli_connect("localhost", "root", "", "reservationsalles");
-                    $ajout = "INSERT INTO reservations (titre, description, debut, fin, id_utilisateurs) VALUES ('$titre', '$description', '$debut', '$fin', '$id')";
-                    $query_ajout = mysqli_query($connexionbd, $ajout); -->
+                    
