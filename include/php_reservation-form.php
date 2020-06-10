@@ -13,11 +13,7 @@
                     $titre = $_POST["titre"];
                     $description = $_POST["description"];        
                     $debut_str = strtotime($debut);
-                    $fin_str = strtotime($fin);                        
-                               
-                    // // $time= explode(':', $_POST["debut_heure"]);
-                    // var_dump($time);
-                    // echo $time[1];//vérifie que minute = 0
+                    $fin_str = strtotime($fin);                                                                           
 
                     // $sous = $fin_str - $debut_str;
                     // echo $sous; //soustraction pour vérifier créneau d'une heure
@@ -29,27 +25,27 @@
 
                      if(empty($info_creneau))
                          {
-                             if($debut_str<time()) 
-                                //check date saisie pour début n'est pas déjà passée 
+                             if($debut_str<time()) //check date saisie pour début n'est pas déjà passée                                 
                                 //time -2 heures !!!!!                            
                                     {
-                                        echo "début";                        
+                                        echo "début passé";                        
                                     }
                             else
                                 {
-                                    if($fin_str<$debut_str) 
-                            //         //check si date de fin n'est pas avant début
-                            //         //manque faire en sorte que le créneau dure 1h !!!!
+                                    $time_debut= explode(':', $_POST["debut_heure"]);//transforme l'heure en tableau 2 entrées                                     
+                                    $time_fin = explode(':', $_POST["fin_heure"]);                                     
+                                   
+                                    if($fin_str<$debut_str) //check si date de fin n'est pas avant début                                                                
                                         {
-                                            echo "fin";
-                                       }
-                                    else if(//crénau d'une heure !)
+                                            echo "fin avant début";
+                                        }
+                                    else if($time_fin[0] - $time_debut[0] == 1)//regarde si le créneau dure 1h
                                         {
-                                            //ajout dans la bdd
+                                            echo "créneau 1h";
                                         }
                                     else
                                         {
-                                            
+                                            echo "Plus d'une heure !!!";
                                         }
                                 }
                             }                                        
