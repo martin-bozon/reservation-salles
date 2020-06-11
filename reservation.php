@@ -13,7 +13,12 @@
     <?php include 'include/header.php';?>
 
     <main>
-        <!-- Inserer include avec tableau créer à l'aide des données de la bdd -->
+        <section>
+            <h1>Réserver par <?php echo $login;?></h1>
+            <p>Le <?php echo $jour?> de <?php echo $heure_debut;?> à <?php echo $heure_fin;?></p>
+            <p>Pour <?php echo $titre;?></p>
+            <p><?php echo $description;?></p>
+        </section>
     </main>
 
     <?php include 'include/footer.php';?>
