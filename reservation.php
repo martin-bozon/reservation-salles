@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php 
+    session_start();
+    include 'include/php_reservation.php';   
+?>
 <!DOCTYPE html>
 <html>
 <head>

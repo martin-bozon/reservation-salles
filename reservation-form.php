@@ -40,7 +40,7 @@
 
             <label for="fin">Date de fin :</label>
             <input type="date" id="fin" name="fin_date" min = "<?php echo date('Y-m-d')?>"required>
-            <select id="debut" name="fin_heure">
+            <select id="fin" name="fin_heure">
                 <option value="09:00">09:00</option>
                 <option value="10:00">10:00</option>
                 <option value="11:00">11:00</option>
