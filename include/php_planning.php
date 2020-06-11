@@ -6,7 +6,7 @@ $query_resa = mysqli_query($connexionbd, $requete_resa);
 $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
 //var_dump($info_resa);
 
-        for($heure = 8; $heure <= 20; $heure++)//génération lignes des heures
+        for($heure = 8; $heure <= 19; $heure++)//génération lignes des heures
             {                
                 ?>  
                 <tr>
@@ -27,7 +27,7 @@ $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
                                         $jour_resa = date("N", mktime(0, 0, 0, $J[1], $J[2], $J[0]));//récupère le numéro du jour      
                                         
                                         $case_resa = $heure_resa . $jour_resa;//crée un numéro de réservation                                         
-                                        //var_dump($case_resa);
+                                        
                                         $titre = $Hresa["titre"];
                                         $login = $Hresa["login"];
                                         $id = $Hresa["id"];
@@ -40,7 +40,7 @@ $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
                                                 ?>
                                                     <td class="resa"><a href="reservation.php?evenement=<?php echo $id;?>"><p><?php echo $titre;?></p>                                                        <p><?php echo $login;?></p></a>
                                                     </td>
-                                                <?php
+                                                <?php                                                
                                                 break; 
                                             }
                                         else //si pas de correspondance set $case à null pour éviter trop d'affchage
@@ -51,7 +51,7 @@ $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
                                 if ($case == null)
                                     {                                                        
                                         ?>
-                                            <td class="case"><a href="reservation-form.php">Réserver un créneau</a></td>
+                                            <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $heure;?>">Réserver un créneau</a></td>
                                         <?php
                                     }                                
                             }                            
