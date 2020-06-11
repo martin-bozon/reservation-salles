@@ -14,7 +14,7 @@
         <table>
             <thead>
                 <tr>
-                    <th></th>
+                    <th class="vide"></th>
                     <th>Lundi</th>
                     <th>Mardi</th>
                     <th>Mercredi</th>

@@ -26,7 +26,7 @@ $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
                                         $J = explode("-", $JH[0]);//explose la date
                                         $jour_resa = date("N", mktime(0, 0, 0, $J[1], $J[2], $J[0]));//récupère le numéro du jour      
                                         
-                                        $case_resa = $heure_resa . $jour_resa;//crée un numéro de réservation   
+                                        $case_resa = $heure_resa . $jour_resa;//crée un numéro de réservation                                         
                                         //var_dump($case_resa);
                                         $titre = $Hresa["titre"];
                                         $login = $Hresa["login"];

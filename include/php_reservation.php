@@ -12,7 +12,7 @@
 
                     $titre = $resa[0]['titre'];
                     $login = $resa[0]['login'];
-                    $description = $resa[0]['titre'];
+                    $description = $resa[0]['description'];
 
                     $debut = explode(" ", $resa[0]['debut']);
 

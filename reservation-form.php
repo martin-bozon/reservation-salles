@@ -13,17 +13,24 @@
     <?php include 'include/header.php';?>
 
     <main>
-        <h1>Réserver une salle</h1>
+        <h1>Réserver la Broadcast room</h1>
         <form action="reservation-form.php" method="POST">
             <label for="titre">Titre :</label>
-            <input type="text" id="titre" name="titre" required>
+            <select id="titre" name="titre" required>
+                <option value="How to">How to</option>
+                <option value="Anglais">Anglais</option>
+                <option value="Pitch">Pitch</option>
+                <option value="Conférence">Conférence</option>
+                <option value="Français">Français</option>
+                <option value="Réunion">Réunion</option>                
+            </select>                
 
             <label for="description">Description:</label>
             <input type="text" id="description" name="description" required>
 
             <label for="debut">Date de début :</label>
             <input type="date" id="debut" name="debut_date" min = "<?php echo date('Y-m-d')?>" required>                   
-            <select id="debut" name="debut_heure">
+            <select id="debut" name="debut_heure" required>
                 <option value="08:00">08:00</option>
                 <option value="09:00">09:00</option>
                 <option value="10:00">10:00</option>
@@ -40,7 +47,7 @@
 
             <label for="fin">Date de fin :</label>
             <input type="date" id="fin" name="fin_date" min = "<?php echo date('Y-m-d')?>"required>
-            <select id="fin" name="fin_heure">
+            <select id="fin" name="fin_heure" required>
                 <option value="09:00">09:00</option>
                 <option value="10:00">10:00</option>
                 <option value="11:00">11:00</option>

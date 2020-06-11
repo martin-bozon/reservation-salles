@@ -16,8 +16,8 @@
         <section>
             <h1>Réserver par <?php echo $login;?></h1>
             <p>Le <?php echo $jour?> de <?php echo $heure_debut;?> à <?php echo $heure_fin;?></p>
-            <p>Pour <?php echo $titre;?></p>
-            <p><?php echo $description;?></p>
+            <p>Intitulé : <?php echo $titre;?></p>
+            <p>Description : <?php echo $description;?></p>
         </section>
     </main>
 
