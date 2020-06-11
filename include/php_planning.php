@@ -9,13 +9,13 @@ $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
         for($heure = 8; $heure <= 20; $heure++)//génération lignes des heures
             {                
                 ?>  
-        <tr>
-            <td><p><?php echo $heure . "h";?></p></td>
+                <tr>
+                    <td class="heure"><p><?php echo $heure . "h";?></p></td>
                 <?php
                 for($jour = 1; $jour<=5; $jour++)//génération des cellules sous les jours
                     {
                         if(!empty($info_resa))
-                            {                                
+                            {                                                                                             
                                 foreach($info_resa as $resa => $Hresa)//sépare les réservations
                                     {                                                
                                         $JH = explode(" ", $Hresa["debut"]);//sélection la ligne correspondant à l'heure de début
@@ -33,36 +33,40 @@ $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
                                         $id = $Hresa["id"];
                                     
                                     
-                                $case = $heure . $jour;//Crée un numéro pour chaque cellules
-                                
-                                if($case == $case_resa)
-                                    { 
-
+                                        $case = $heure . $jour;//Crée un numéro pour chaque cellules
+                                        
+                                        if($case == $case_resa)
+                                            {                                                 
+                                                ?>
+                                                    <td class="resa"><p><?php echo $titre;?></p>
+                                                        <p><?php echo $login;?></p>
+                                                    </td>
+                                                <?php
+                                                break; 
+                                            }
+                                        else //si pas de correspondance set $case à null pour éviter trop d'affchage
+                                            {
+                                                $case = null; 
+                                            }                                                                                         
+                                    }                                                                       
+                                if ($case == null)
+                                    {                                                        
                                         ?>
-                                            <td><p><?php echo $titre . "&nbsp" . $login?></p></td>
+                                            <td class="case"><a href="reservation-form.php">Réserver un créneau</a></td>
                                         <?php
                                     }
                                 else
-                                    
-                                         $case = null;
-                                    }                                                                       
-                                if ($case == null)
-                                    {                    
-                                        ?>
-                                            <td><p>Dispo<?php echo $case;?></p></td><!--donne un numéro à chaque cellules -->
-                                        <?php
-                                    }
-                                    
-                            }
+                                    var_dump($case);
+                            }                            
                         else
                             {
                                 ?>
-                                    <td><p>Dispo</p></td><!--si aucune résé n'est faite -->
+                                    <td class="case"><a href="reservation-form.php">Réserver un créneau</a></td><!--si aucune résa dans la bdd -->
                                 <?php
                             }        
                     }   
-            ?>                                        
-        </tr>
-    <?php
+                ?>                                        
+                </tr>
+                <?php
             }    
 ?>

@@ -23,8 +23,7 @@
                 </tr>                              
             </thead>
             <tbody>
-            <?php include 'include/php_planning.php';?>
-                <!-- insérer iclude avec le reste du tableau, fait en for avec les données de la bbd -->
+                <?php include 'include/php_planning.php';?>               
             </tbody>
         </table>
     </main>
