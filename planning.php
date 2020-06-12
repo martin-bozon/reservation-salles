@@ -15,11 +15,11 @@
             <thead>
                 <tr>
                     <th class="vide"></th>
-                    <th class="jour">Lundi</th>
-                    <th class="jour">Mardi</th>
-                    <th class="jour">Mercredi</th>
-                    <th class="jour">Jeudi</th>
-                    <th class="jour">Vendredi</th>
+                    <th class="jour">Lundi <?php echo $jour_semaine = date('d/m', strtotime('monday this week'));?></th>
+                    <th class="jour">Mardi <?php echo $jour_semaine = date('d/m', strtotime('tuesday this week'));?></th>
+                    <th class="jour">Mercredi <?php echo $jour_semaine = date('d/m', strtotime('wednesday this week'));?></th>
+                    <th class="jour">Jeudi <?php echo $jour_semaine = date('d/m', strtotime('thursday this week'));?></th>
+                    <th class="jour">Vendredi <?php echo $jour_semaine = date('d/m', strtotime('friday this week'));?></th>
                 </tr>                              
             </thead>
             <tbody>
