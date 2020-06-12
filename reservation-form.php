@@ -29,27 +29,16 @@
             <input type="text" id="description" name="description" required>
 
             <label for="debut">Date et heure de début <span class="oblig">*</span> :</label>
-            <?php include 'include/php_select_date.php';?>                            
+            <?php include 'include/php_select_date.php';?>
+
             <select id="debut" name="debut_heure" required>               
             <?php include 'include/php_select_h_debut.php';?>
             </select>                       
 
             <label for="fin">Date et heure de fin <span class="oblig">*</span> :</label>
-            <?php
-                if(isset($_GET["date_debut"]))
-                    {
-                        ?>
-                        <input type="date" id="fin" name="fin_date" min = "<?php echo date('Y-m-d')?>" value="<?php echo $date_select;?>" required>
-                        <?php
-                    }
-                else   
-                    {
-                        ?>
-                        <input type="date" id="fin" name="fin_date" min = "<?php echo date('Y-m-d')?>"
-                        <?php
-                    }
-            ?>
-                <small>Créneau d'une heure !</small>
+            <?php include 'include/php_affiche_d_fin.php';?>
+                
+
             <select id="fin" name="fin_heure" required>
             <?php include 'include/php_select_h_fin.php';?>                            
             </select>  
