@@ -118,6 +118,30 @@ main a:hover
         width: 50vw;
         height: 70vh;
     }
+#reservation
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 40vw;
+        height: 55vh;
+        background-color: #88c0d0;
+        padding-bottom: 5vh;
+    }
+.info_resa
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+hr  
+    {
+        width: 5vw;
+        border: 1px dashed black;
+        margin-bottom: 0;
+    }
 /* form */
 form
     {
@@ -137,12 +161,6 @@ label
 #deco 
     {
         font-family: "Roboto";
-        border-radius: 10px;
-        border: 1px solid black;
-    }
-#deco:hover
-    {
-        border: 1px solid #ffca4b;
     }
 .form_pir
     {
@@ -165,6 +183,15 @@ label
 .oblig
     {
         color: red;
+    }
+.bouton
+    {
+        border-radius: 10px;
+        border: 1px solid black;
+    }
+.bouton:hover
+    {
+        border: 1px solid #ffca4b;
     }
 /* tableau */
 table

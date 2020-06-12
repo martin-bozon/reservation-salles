@@ -118,7 +118,7 @@
             
             <small class="oblig">* Champ obligatoire</small>        
            
-            <input type="submit" name="validresa" value="Réserver">
+            <input type="submit" name="validresa" class="bouton" value="Réserver">
 
             <?php
                 if(isset($msg_error))

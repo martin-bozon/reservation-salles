@@ -26,7 +26,7 @@
             <label for="conf_password">Confirmer mot de passe :</label>
             <input type="password" id="conf_password" name="conf_password">
 
-            <input type="submit" name="validmod" value="Modifier">
+            <input type="submit" name="validmod" class="bouton" value="Modifier">
 
             <?php                     
                     if(isset($msg_login))

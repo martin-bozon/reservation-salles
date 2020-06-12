@@ -13,11 +13,19 @@
     <?php include 'include/header.php';?>
 
     <main>
-        <section>
-            <h1>Réserver par <?php echo $login;?></h1>
+        <section id="reservation">
+            <h1>Réserver par <u><?php echo $login;?></u></h1>
             <p>Le <?php echo $jour?> de <?php echo $heure_debut;?> à <?php echo $heure_fin;?></p>
-            <p>Intitulé : <?php echo $titre;?></p>
-            <p>Description : <?php echo $description;?></p>
+            <section class="info_resa">
+                <p><u>Intitulé</u> :</p>
+                <?php echo $titre;?>
+            </section>
+            <hr>
+            <section class="info_resa">
+                <p><u>Description</u> :</p>
+                <?php echo $description;?>
+            </section>
+            
         </section>
     </main>
 

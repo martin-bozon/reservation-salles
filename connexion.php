@@ -21,7 +21,7 @@
                 <label for="password">Mot de passe :</label>
                 <input type="password" id="password" name="password" required>            
 
-                <input type="submit" name="validcon" value="Connexion">
+                <input type="submit" name="validcon" class="bouton" value="Connexion">
 
                 <?php
                     if(isset($msg_error))
