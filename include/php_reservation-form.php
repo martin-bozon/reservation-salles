@@ -30,7 +30,7 @@
                             if($debut_str<time()) //check date saisie pour début n'est pas déjà passée                                 
                                 //time -2 heures !!!!!                            
                                 {
-                                    $msg_error =  "début passé";                        
+                                    $msg_error =  "L'heure est déjà passée";                        
                                 }
                             else
                                 {
@@ -41,7 +41,7 @@
                                         
                                             if($fin_str<$debut_str) //check si date de fin n'est pas avant début                                                                
                                                 {
-                                                    $msg_error = "fin avant début";
+                                                    $msg_error = "La fin doit être le même jour";
                                                 }
                                             else if($time_fin[0] - $time_debut[0] == 1)//regarde si le créneau dure 1h
                                                 {                                            
@@ -53,17 +53,17 @@
                                                         }
                                                     else
                                                         {
-                                                            $msg_error = "week-end";
+                                                            $msg_error = "Pas de réservation le week-end";
                                                         }
                                                 }
                                             else
                                                 {
-                                                    $msg_error = "Plus d'une heure !!!";
+                                                    $msg_error = "Le créneau doit faire 1h";
                                                 }
                                         }
                                     else
                                         {
-                                            $msg_error = "pas le même jour";
+                                            $msg_error = "Date de début et de fin différente";
                                         }                                    
                                 }
                         } 
