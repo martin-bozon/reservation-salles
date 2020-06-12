@@ -36,8 +36,7 @@ $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
                                         if($case == $case_resa)
                                             {                                                 
                                                 ?>
-                                                    <td class="resa"><a href="reservation.php?evenement=<?php echo $id;?>"><p><?php echo $titre;?></p>                                                        <p><?php echo $login;?></p></a>
-                                                    </td>
+                                                    <td class="resa"><a href="reservation.php?evenement=<?php echo $id;?>"><p><?php echo $titre;?></p><p><?php echo $login;?></p></a></td>
                                                 <?php                                                
                                                 break; 
                                             }

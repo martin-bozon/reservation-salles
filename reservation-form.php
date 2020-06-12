@@ -29,92 +29,29 @@
             <input type="text" id="description" name="description" required>
 
             <label for="debut">Date et heure de début <span class="oblig">*</span> :</label>
-        
-            <input type="date" id="debut" name="debut_date" min = "<?php echo date('Y-m-d')?>" value="<?php echo date('Y-m-d');?>" required>                   
+            <?php include 'include/php_select_date.php';?>                            
             <select id="debut" name="debut_heure" required>               
-            <?php
-            if(isset($_GET["heure_debut"]))
-                {
-                    for($heure_select = 8; $heure_select<=19; $heure_select++)
-                    {                        
-                        if($heure_select < 10)
-                            {                                
-                                ?>
-                                <option value="<?php echo "0" . $heure_select . ":00";?>" <?php if ($heure_select == $_GET["heure_debut"]){echo "selected";} ?>><?php echo "0" . $heure_select . ":00";?></option>
-                                <?php                                
-                            }
-                        else
-                            {
-                                ?>
-                                <option value="<?php echo $heure_select . ":00";?>" <?php if($heure_select == $_GET["heure_debut"]){echo "selected";}?>><?php echo $heure_select . ":00";?></option>
-                                <?php
-                            }                                             
-                    }
-                }
-            else
-                {   
-                    for($heure_select = 8; $heure_select<=19; $heure_select++)
-                        {
-                            if($heure_select < 10)
-                                {
-                                    ?>
-                                    <option value="<?php echo "0" .$heure_select . ":00";?>"><?php echo "0" . $heure_select . ":00";?></option>
-                                    <?php
-                                }
-                            else
-                                {
-                                    ?>
-                                    <option value="<?php echo $heure_select . ":00";?>"><?php echo $heure_select . ":00";?></option>
-                                    <?php
-                                }                            
-                        }                    
-                }
-                
-            ?>
+            <?php include 'include/php_select_h_debut.php';?>
             </select>                       
 
             <label for="fin">Date et heure de fin <span class="oblig">*</span> :</label>
-            <input type="date" id="fin" name="fin_date" min = "<?php echo date('Y-m-d')?>"required>
-            <small>Créneau d'une heure !</small>
-            <select id="fin" name="fin_heure" required>
             <?php
-                if(isset($_GET["heure_debut"]))
+                if(isset($_GET["date_debut"]))
                     {
-                        for($heure_fin = 9; $heure_fin<=20; $heure_fin++)
-                            {
-                                if($heure_fin < 10)
-                                    {
-                                        ?>
-                                        <option value="<?php echo "0" . $heure_fin . ":00";?>" <?php if ($heure_fin == $_GET["heure_debut"]+1){echo "selected";} ?>><?php echo "0" . $heure_fin . ":00";?></option>
-                                        <?php   
-                                    }
-                                else
-                                    {
-                                        ?>
-                                        <option value="<?php echo $heure_fin . ":00";?>" <?php if ($heure_fin == $_GET["heure_debut"]+1){echo "selected";} ?>><?php echo $heure_fin . ":00";?></option>
-                                        <?php 
-                                    }
-                            }
+                        ?>
+                        <input type="date" id="fin" name="fin_date" min = "<?php echo date('Y-m-d')?>" value="<?php echo $date_select;?>" required>
+                        <?php
                     }
-                else
+                else   
                     {
-                        for($heure_fin = 9; $heure_fin<=20; $heure_fin++)
-                            {
-                                if($heure_fin < 10)
-                                    {
-                                        ?>
-                                        <option value="<?php echo "0" . $heure_fin . ":00";?>"><?php echo "0" . $heure_fin . ":00";?></option>
-                                        <?php   
-                                    }
-                                else
-                                    {
-                                        ?>
-                                        <option value="<?php echo $heure_fin . ":00";?>"><?php echo $heure_fin . ":00";?></option>
-                                        <?php 
-                                    }
-                            }
+                        ?>
+                        <input type="date" id="fin" name="fin_date" min = "<?php echo date('Y-m-d')?>"
+                        <?php
                     }
-            ?>                            
+            ?>
+                <small>Créneau d'une heure !</small>
+            <select id="fin" name="fin_heure" required>
+            <?php include 'include/php_select_h_fin.php';?>                            
             </select>  
             
             <small class="oblig">* Champ obligatoire</small>        
