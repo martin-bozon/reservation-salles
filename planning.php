@@ -10,7 +10,8 @@
     <?php include 'include/header.php';?>
 
     <main>
-        <h1>Planning</h1>
+        <h1>Planning <?php echo $jour_semaine = date('Y', time());?></h1>
+        <h2>Semaine <?php echo $jour_semaine = date('W', time());?></h2>
         <table>
             <thead>
                 <tr>
