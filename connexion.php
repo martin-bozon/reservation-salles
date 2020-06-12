@@ -13,9 +13,8 @@
     <?php include 'include/header.php';?>
 
     <main>
-        <h1>Formulaire de Connexion</h1>
-        <section>
-            <form action="connexion.php" method="POST">
+        <h1>Formulaire de Connexion</h1>    
+            <form action="connexion.php" method="POST" id="form_co">
                 <label for="login">Login :</label>
                 <input type="text" id="login" name="login" required/>
 
@@ -36,9 +35,8 @@
                 <?php
                         }
                 ?>
-            </form>
-            <p>Tu n'as pas encore de comptes ? => <a href="inscription.php">inscris toi !</a></p>
-        </section>
+            </form>   
+            <p>Tu n'as pas encore de comptes ? => <a href="inscription.php">inscris toi !</a></p>                 
     </main>
 
     <?php include 'include/footer.php';?>

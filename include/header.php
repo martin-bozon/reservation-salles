@@ -11,7 +11,7 @@
                         <h2><a href="reservation-form.php">Réserver une salle</a></h2>
                         <h2><a href="profil.php">Profil</a></h2>
                         <form method="POST">
-                            <input type="submit" name="deco" value="Déconnexion"/>
+                            <input type="submit" name="deco" id="deco" value="Déconnexion"/>
                         </form>
                     </section>
                     <?php

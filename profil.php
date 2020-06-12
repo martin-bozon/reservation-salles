@@ -13,7 +13,7 @@
     <?php include 'include/header.php';?>
 
     <main>
-        <form action="profil.php" method="POST">
+        <form action="profil.php" method="POST" class="form_pir">
             <label for="login">Login :</label>
             <input type="text" id="login" name="login"required value="<?php echo $_SESSION['login'];?>"/>
 

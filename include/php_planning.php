@@ -58,7 +58,7 @@ $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
                         else
                             {
                                 ?>
-                                    <td class="case"><a href="reservation-form.php">Réserver un créneau</a></td><!--si aucune résa dans la bdd -->
+                                    <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $heure;?>">Réserver un créneau</a></td><!--si aucune résa dans la bdd -->
                                 <?php
                             }        
                     }   

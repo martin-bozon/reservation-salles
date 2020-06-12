@@ -15,11 +15,11 @@
             <thead>
                 <tr>
                     <th class="vide"></th>
-                    <th>Lundi</th>
-                    <th>Mardi</th>
-                    <th>Mercredi</th>
-                    <th>Jeudi</th>
-                    <th>Vendredi</th>
+                    <th class="jour">Lundi</th>
+                    <th class="jour">Mardi</th>
+                    <th class="jour">Mercredi</th>
+                    <th class="jour">Jeudi</th>
+                    <th class="jour">Vendredi</th>
                 </tr>                              
             </thead>
             <tbody>

@@ -14,8 +14,8 @@
 
     <main>
         <h1>Réserver la Broadcast room</h1>
-        <form action="reservation-form.php" method="POST">
-            <label for="titre">Titre :</label>
+        <form action="reservation-form.php" method="POST" class="form_pir">
+            <label for="titre">Titre <span class="oblig">*</span> :</label>
             <select id="titre" name="titre" required>
                 <option value="How to">How to</option>
                 <option value="Anglais">Anglais</option>
@@ -25,10 +25,10 @@
                 <option value="Réunion">Réunion</option>                
             </select>                
 
-            <label for="description">Description:</label>
+            <label for="description">Description <span class="oblig">*</span>: </label>
             <input type="text" id="description" name="description" required>
 
-            <label for="debut">Date de début :</label>
+            <label for="debut">Date et heure de début <span class="oblig">*</span> :</label>
             <input type="date" id="debut" name="debut_date" min = "<?php echo date('Y-m-d')?>" required>                   
             <select id="debut" name="debut_heure" required>               
             <?php
@@ -72,8 +72,9 @@
             ?>
             </select>                       
 
-            <label for="fin">Date de fin :</label>
+            <label for="fin">Date et heure de fin <span class="oblig">*</span> :</label>
             <input type="date" id="fin" name="fin_date" min = "<?php echo date('Y-m-d')?>"required>
+            <small>Créneau d'une heure !</small>
             <select id="fin" name="fin_heure" required>
             <?php
                 if(isset($_GET["heure_debut"]))
@@ -114,7 +115,8 @@
                     }
             ?>                            
             </select>  
-            <small>Créneau d'une heure !</small>
+            
+            <small class="oblig">* Champ obligatoire</small>        
            
             <input type="submit" name="validresa" value="Réserver">
 

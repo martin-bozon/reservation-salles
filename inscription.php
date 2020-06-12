@@ -14,7 +14,7 @@
 
     <main>
         <h1>Formulaire d'inscription</h1>
-        <form action="inscription.php" method="POST">
+        <form action="inscription.php" method="POST" class="form_pir">
             <label for="login">Login :</label>
             <input type="text" id="login" name="login" required/>
 
