@@ -4,7 +4,6 @@ $requete_resa = "SELECT * FROM utilisateurs INNER JOIN reservations ON utilisate
 //sélectionne toutes les réservations de la semaine en cour, en allant chercher le login de l'user qui fait la résa. 
 $query_resa = mysqli_query($connexionbd, $requete_resa);
 $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
-//var_dump($info_resa);
 
         for($heure = 8; $heure <= 19; $heure++)//génération lignes des heures
             {                
@@ -31,8 +30,7 @@ $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
                                         $titre = $Hresa["titre"];
                                         $login = $Hresa["login"];
                                         $id = $Hresa["id"];
-                                    
-                                    
+                                                                        
                                         $case = $heure . $jour;//Crée un numéro pour chaque cellules
                                         
                                         if($case == $case_resa)
@@ -49,9 +47,10 @@ $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
                                             }                                                                                         
                                     }                                                                       
                                 if ($case == null)
-                                    {                                                        
+                                    {            
+                                        
                                         ?>
-                                            <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $heure;?>">Réserver un créneau</a></td> <!-- &date_debut=<?php //echo $JH[0];?> -->
+                                            <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $heure;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau</a></td>
                                         <?php
                                     }                                
                             }                            

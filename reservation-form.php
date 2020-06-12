@@ -29,7 +29,8 @@
             <input type="text" id="description" name="description" required>
 
             <label for="debut">Date et heure de début <span class="oblig">*</span> :</label>
-            <input type="date" id="debut" name="debut_date" min = "<?php echo date('Y-m-d')?>" required>                   
+        
+            <input type="date" id="debut" name="debut_date" min = "<?php echo date('Y-m-d')?>" value="<?php echo date('Y-m-d');?>" required>                   
             <select id="debut" name="debut_heure" required>               
             <?php
             if(isset($_GET["heure_debut"]))
