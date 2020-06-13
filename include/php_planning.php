@@ -5,6 +5,11 @@ $requete_resa = "SELECT * FROM utilisateurs INNER JOIN reservations ON utilisate
 $query_resa = mysqli_query($connexionbd, $requete_resa);
 $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
 
+//Variale pour rien afficher si jour et heure son passés
+$aujourdhui = date('d');
+$aujourdhui_jour = date('N', mktime($aujourdhui)); 
+$aujourdhui_heure = date('H');  
+
         for($heure = 8; $heure <= 19; $heure++)//génération lignes des heures
             {                
                 ?>  
@@ -12,7 +17,7 @@ $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
                     <td class="heure"><p><?php echo $heure . "h";?></p></td>
                 <?php
                 for($jour = 1; $jour<=5; $jour++)//génération des cellules sous les jours
-                    {
+                    {                       
                         if(!empty($info_resa))
                             {                                                                                             
                                 foreach($info_resa as $resa => $Hresa)//sépare les réservations
@@ -46,18 +51,36 @@ $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
                                             }                                                                                         
                                     }                                                                       
                                 if ($case == null)
-                                    {            
-                                        
-                                        ?>
-                                            <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $heure;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau</a></td>
-                                        <?php
-                                    }                                
-                            }                            
+                                    {                                                                                                                                
+                                        if($aujourdhui_jour > $jour || $aujourdhui_heure >= $heure)  
+                                            {                                                
+                                                ?>
+                                                <td class="case"></td>
+                                                <?php
+                                            }
+                                        else
+                                            {
+                                                ?>
+                                                <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $heure;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau<?php echo $aujourdhui_heure . " " . $heure . " " . $aujourdhui_jour . " " . $jour;?></a></td>
+                                                <?php
+                                            }
+                                                
+                                    }                                                                
+                            }                                                                                                       
                         else
                             {
-                                ?>
-                                    <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $heure;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau</a></td><!--si aucune résa dans la bdd -->
-                                <?php
+                                if($aujourdhui_jour > $jour || $aujourdhui_heure >= $heure)  
+                                    {
+                                        ?>
+                                        <td class="case"><p>Créneau passé</p></td>
+                                        <?php
+                                    }
+                                else
+                                    {
+                                        ?>
+                                        <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $heure;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau</a></td>
+                                        <?php
+                                    }
                             }        
                     }   
                 ?>                                        
