@@ -4,7 +4,7 @@
             header("Location:index.php");
         }
     else
-        {                    
+        {
             if(isset($_POST["validmod"]) && !empty($_POST["login"]) && !empty($_POST["old_password"]))
                 {
                     if(password_verify($_POST["old_password"], $_SESSION["password"]))
