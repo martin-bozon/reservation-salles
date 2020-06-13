@@ -55,7 +55,7 @@ $aujourdhui_heure = date('H');
                                         if($aujourdhui_jour > $jour || $aujourdhui_heure >= $heure)  
                                             {                                                
                                                 ?>
-                                                <td class="case"></td>
+                                                <td class="passee"><p>Créneau passé</p></td>
                                                 <?php
                                             }
                                         else
@@ -72,7 +72,7 @@ $aujourdhui_heure = date('H');
                                 if($aujourdhui_jour > $jour || $aujourdhui_heure >= $heure)  
                                     {
                                         ?>
-                                        <td class="case"><p>Créneau passé</p></td>
+                                        <td class="passe"><p>Créneau passé</p></td>
                                         <?php
                                     }
                                 else
