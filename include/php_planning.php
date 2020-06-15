@@ -5,11 +5,6 @@ $requete_resa = "SELECT * FROM utilisateurs INNER JOIN reservations ON utilisate
 $query_resa = mysqli_query($connexionbd, $requete_resa);
 $info_resa = mysqli_fetch_all($query_resa, MYSQLI_ASSOC);
 
-//Variale pour rien afficher si jour et heure son passés
-$aujourdhui = date('d');
-$aujourdhui_jour = date('N', mktime($aujourdhui)); 
-$aujourdhui_heure = date('H');  
-
         for($heure = 8; $heure <= 19; $heure++)//génération lignes des heures
             {                
                 ?>  
@@ -51,37 +46,18 @@ $aujourdhui_heure = date('H');
                                             }                                                                                         
                                     }                                                                       
                                 if ($case == null)
-                                    {                                                                                                                                
-                                        if($aujourdhui_jour > $jour || $aujourdhui_heure >= $heure)  
-                                            {                                                
-                                                ?>
-                                                <td class="passee"><p>Créneau passé</p></td>
-                                                <?php
-                                            }
-                                        else
-                                            {
-                                                ?>
-                                                <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $heure;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau<?php echo $aujourdhui_heure . " " . $heure . " " . $aujourdhui_jour . " " . $jour;?></a></td>
-                                                <?php
-                                            }
-                                                
-                                    }                                                                
-                            }                                                                                                       
-                        else
-                            {
-                                if($aujourdhui_jour > $jour || $aujourdhui_heure >= $heure)  
-                                    {
-                                        ?>
-                                        <td class="passe"><p>Créneau passé</p></td>
-                                        <?php
-                                    }
-                                else
-                                    {
+                                    {                                                                                                                                                                                                           
                                         ?>
                                         <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $heure;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau</a></td>
                                         <?php
-                                    }
-                            }        
+                                    }                                                                                                                                                
+                            }                                                                                                       
+                        else
+                            {                               
+                                ?>
+                                <td class="case"><a href="reservation-form.php?heure_debut=<?php echo $heure;?>&amp;date_debut=<?php echo $jour;?>">Réserver un créneau</a></td>
+                                <?php
+                            }                            
                     }   
                 ?>                                        
                 </tr>
