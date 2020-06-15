@@ -69,7 +69,7 @@ $aujourdhui_heure = date('H');
                             }                                                                                                       
                         else
                             {
-                                if($aujourdhui_jour > $jour && $aujourdhui_heure >= $heure)  
+                                if($aujourdhui_jour > $jour || $aujourdhui_heure >= $heure)  
                                     {
                                         ?>
                                         <td class="passe"><p>Créneau passé</p></td>
